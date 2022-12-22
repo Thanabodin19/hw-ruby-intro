@@ -49,11 +49,13 @@ def starts_with_consonant? s
   if s.length == 0
     return false
   else
-    n = s[0].downcase.count '#aeiou'
-    if  n >= 1
-      return false
-    else
-      return true
+    if s[0].count("a-zA-Z") == 1
+      n = s[0].downcase.count 'aeiou'
+      if  n >= 1
+        return false
+      else
+        return true
+      end
     end
   end
   # YOUR CODE HERE
@@ -81,21 +83,13 @@ end
 # Part 3
 
 class BookInStock
-  attr_writer :isbn ,:price
+  attr_accessor :isbn ,:price
   def initialize(isbn,price)
     if isbn == "" || price < 1
       raise ArgumentError 
     end
     @isbn = isbn
     @price = price
-  end
-
-  def isbn
-    @isbn
-  end
-
-  def price
-    @price
   end
 
   def price_as_string
