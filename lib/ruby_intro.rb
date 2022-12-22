@@ -81,13 +81,9 @@ end
 # Part 3
 
 class BookInStock
-  attr_writer :isbn
-  attr_writer :price
+  attr_writer :isbn ,:price
   def initialize(isbn,price)
-    if isbn == ""
-      raise ArgumentError 
-    end
-    if price < 1
+    if isbn == "" || price < 1
       raise ArgumentError 
     end
     @isbn = isbn
